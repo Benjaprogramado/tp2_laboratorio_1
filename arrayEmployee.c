@@ -40,6 +40,13 @@
      system("cls");
      printf("\n    -----ADMINISTRAR NOMINA DE EMPLEADOS-----\n\nPor favor, ingrese el numero correspondiente a la opcion deseada:");
      opcionMenu = getInt("\n\n\n1 - ALTAS \n2 - MODIFICACIONES \n3 - BAJAS\n4 - INFORMAR\n5 - SALIR\n\n\n");
+     if(opcionMenu!=1&&opcionMenu!=2&&opcionMenu!=3&&opcionMenu!=4&&opcionMenu!=5)
+     {
+         printf("\n\nOpcion incorrecta!!");
+         getch();
+         fflush(stdin);
+
+     }
      return opcionMenu;
  }
 
@@ -47,7 +54,7 @@
 /////////////////////////////////////////////////////////////////////////////////
 
  /**
- * \brief Inicializa el array de empleados con el valor indicado
+ * \brief Inicializa el array con el valor indicado
  * \param array, es el array a ser inicializado
  * \param len, es el tope de carga del array
  * \param value, es el valor que sera cargado en cada posición "i" del array mencionado
@@ -111,7 +118,7 @@ int findEmployeeById(employee array[],int len,char mensaje[])
  * \brief Busca el primer espacio disponible en el array indicado
  * \param array, es el array en se buscará
  * \param len, logitud del array utilizado
- * \param value Es el valor que se busca
+ * \param value Es el valor de referencia que se busca
  * \return Si no encuentra coincidencias (-1) y si la hay, devuelve la posición de la misma
  *
  */
@@ -171,8 +178,9 @@ int addEmployee(employee array[],int len)
 
          if(auxiliar.sector!=1&&auxiliar.sector!=2&&auxiliar.sector!=3&&auxiliar.sector!=4)
            {
-             printf ("Opción Incorrecta, debe ingresar un numero del 1 al 4...\n");
+             printf ("Opcion Incorrecta, debe ingresar un numero del 1 al 4...\n");
              getch();
+             fflush(stdin);
              return 0;
              break;
            }
@@ -265,8 +273,7 @@ int changeEmployee(employee array[],int len)
 /**
  * \brief Busca los datos de un empleado basandose en el ID asignado al mismo
  * \param array, es el array de empleados donde se buscara el dato
- * \param maxItems, Indica la logitud del array mencionado
- * \param value, es el ID que se esta buscando
+ * \param len, Indica la logitud del array mencionado
  * \return 1
  *
  */
@@ -367,7 +374,7 @@ int sortEmployee(employee array[],int len)
 /**
  * \brief imprime el array indicado
  * \param len, longitud del array
- * \return 0
+ * \return void
  *
  */
 
@@ -419,8 +426,6 @@ float promSalaryEmployee(employee array[],int len)
     if(flag==1)
         {
             promedio=division(acumulador,contador);
-            /*printf("\n\n\n\nEl promedio de sueldos es %.2f\n\n\n\nPresione una tecla para continuar...", promedio);
-            getch();*/
         }
     if(flag==0)
     {
@@ -434,10 +439,10 @@ return promedio;
 /////////////////////////////////////////////////////////////////////////////////
 
 /**
- * \brief calcula el promedio de un dato del tipo float en el array indicado
+ * \brief calcula la cantidad de empleados que sobrepasan el promedio indicado
  * \param array, array de donde se extrae el dato para calcular el promedio
  * \param len, longitud del array
- * \return 1
+ * \return el numero de la cantidad de empleados que cumplen la condicion
  *
  */
 

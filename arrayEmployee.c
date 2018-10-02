@@ -395,28 +395,30 @@ void printArrayEmployee(employee array[],int len)
 /////////////////////////////////////////////////////////////////////////////////
 
 /**
- * \brief imprime el array indicado
+ * \brief calcula el promedio de un dato del tipo float en el array indicado
+ * \param array, array de donde se extrae el dato para calcular el promedio
  * \param len, longitud del array
- * \return 0
+ * \return 1
  *
  */
 
 int promSalaryEmployee(employee array[],int len)
 {
-    int i;
-    float contador=0;
-    float auxiliar=0;
+    int i, contador=0;
+    float acumulador=0;
     float promedio;
     for(i=0;i<len;i++)
     {
         if(array[i].isEmpty!=-1)
         {
-            auxiliar=suma(auxiliar,array[i].salary);
+            acumulador=suma(acumulador,array[i].salary);
             contador ++;
         }
     }
 
-    promedio=division(auxiliar,contador);
+    promedio=division(acumulador,contador);
+    printf("\n\n\n\nEl promedio de sueldos es %.2f\n\n\n\nPresione una tecla para continuar...", promedio);
+    getch();
 return 1;
 }
 

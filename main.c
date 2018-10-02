@@ -12,7 +12,7 @@ int main()
 
     employee arrayEmployee[MAX];
     int opcion = 0;
-    float promedio;
+
 
     initArrayEmployee(arrayEmployee,MAX,-1);
 
@@ -72,10 +72,10 @@ int main()
                 }
                 else
                 {
+
                     sortEmployee(arrayEmployee,MAX);
                     printArrayEmployee(arrayEmployee,MAX);
-                    promedio=promSalaryEmployee(arrayEmployee,MAX);
-                    printf("\n\nEl promedio de sueldos es: %.2f",promedio);
+                    promSalaryEmployee(arrayEmployee,MAX);
 
                 }
 

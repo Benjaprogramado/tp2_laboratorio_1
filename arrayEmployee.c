@@ -375,12 +375,12 @@ void printArrayEmployee(employee array[],int len)
 
 {
     int i;
-    printf(" ID-SECTOR-Apellido-Nombre-Salario\n\n");
+    printf("\n ID-SECTOR-Apellido-Nombre-Salario\n\n");
                     for(i=0;i<len;i++)
                       {
                         if(array[i].isEmpty!=(-1))
                               {
-                                printf("  %d - %d - %s - %s - %.2f\n\n",array[i].id,array[i].sector,array[i].lastName,array[i].name,array[i].salary);
+                                printf("\n  %d - %d - %s - %s - %.2f\n",array[i].id,array[i].sector,array[i].lastName,array[i].name,array[i].salary);
 
                               }
                       }
@@ -398,13 +398,13 @@ void printArrayEmployee(employee array[],int len)
  * \brief calcula el promedio de un dato del tipo float en el array indicado
  * \param array, array de donde se extrae el dato para calcular el promedio
  * \param len, longitud del array
- * \return 1
+ * \return el promedio calculado
  *
  */
 
-int promSalaryEmployee(employee array[],int len)
+float promSalaryEmployee(employee array[],int len)
 {
-    int i, contador=0;
+    int i, contador=0, flag=0;
     float acumulador=0;
     float promedio;
     for(i=0;i<len;i++)
@@ -413,13 +413,49 @@ int promSalaryEmployee(employee array[],int len)
         {
             acumulador=suma(acumulador,array[i].salary);
             contador ++;
+            flag=1;
         }
     }
+    if(flag==1)
+        {
+            promedio=division(acumulador,contador);
+            /*printf("\n\n\n\nEl promedio de sueldos es %.2f\n\n\n\nPresione una tecla para continuar...", promedio);
+            getch();*/
+        }
+    if(flag==0)
+    {
+        promedio=0;
+    }
 
-    promedio=division(acumulador,contador);
-    printf("\n\n\n\nEl promedio de sueldos es %.2f\n\n\n\nPresione una tecla para continuar...", promedio);
-    getch();
-return 1;
+
+return promedio;
+}
+
+/////////////////////////////////////////////////////////////////////////////////
+
+/**
+ * \brief calcula el promedio de un dato del tipo float en el array indicado
+ * \param array, array de donde se extrae el dato para calcular el promedio
+ * \param len, longitud del array
+ * \return 1
+ *
+ */
+
+int overSalaryProm(employee array[],int len)
+{
+    int i;
+    int contador=0;
+    float promedio;
+
+    promedio=promSalaryEmployee(array,len);
+    for(i=0;i<len;i++)
+    {
+        if(array[i].isEmpty!=-1&&array[i].salary>promedio)
+        {
+            contador ++;
+        }
+    }
+return contador;
 }
 
 /////////////////////////////////////////////////////////////////////////////////

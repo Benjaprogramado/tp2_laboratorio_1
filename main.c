@@ -72,10 +72,20 @@ int main()
                 }
                 else
                 {
-
+                    float promedio;
+                    int salariosAltos;
+                    system("cls");
                     sortEmployee(arrayEmployee,MAX);
                     printArrayEmployee(arrayEmployee,MAX);
-                    promSalaryEmployee(arrayEmployee,MAX);
+                    promedio=promSalaryEmployee(arrayEmployee,MAX);
+                    system("cls");
+                    printf("\n\nEl promedio de sueldos es: %.2f\n\nPresione una tecla para continuar",promedio);
+                    getch();
+                    system("cls");
+                    salariosAltos=overSalaryProm(arrayEmployee,MAX);
+                    printf("\n\nLa cantidad de sueldos sobre el promedio es: %d\n\nPresione una tecla para continuar",salariosAltos);
+                    getch();
+
 
                 }
 

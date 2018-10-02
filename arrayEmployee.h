@@ -23,7 +23,8 @@ void initArrayEmployee(employee array[],int len,int value);
 int findEmployeeById(employee array[],int len,char mensaje[]);
 int sortEmployee(employee array[],int len);
 void printArrayEmployee(employee array[],int len);
-int promSalaryEmployee(employee array[],int len);
+float promSalaryEmployee(employee array[],int len);
+int overSalaryProm(employee array[],int len);
 
 int esNumerico(char str[]);//sin uso aun
 int esSoloLetras(char str[]);//sin uso aun
